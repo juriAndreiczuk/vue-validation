@@ -1,5 +1,3 @@
-# vue-hooks-practice
-
 ## Project setup
 ```
 npm install
