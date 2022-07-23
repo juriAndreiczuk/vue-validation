@@ -1,4 +1,4 @@
-import {reactive, ref, watch} from 'vue'
+import {reactive, ref, watch, computed} from 'vue'
 
 const useField = (field) => {
   const valid = ref(true)
@@ -17,10 +17,14 @@ const useField = (field) => {
     })
   }
 
+  const blur = () => touched.value = true
+
+  const showError = computed(() => touched.value && !valid.value)
+
   checkErrors()
   watch(value, checkErrors)
 
-  return {value, valid, errors, touched}
+  return {value, valid, errors, touched, showError, blur}
 }
 
 export default useField

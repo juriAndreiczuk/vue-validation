@@ -8,11 +8,11 @@ const useForm = (props = {}) => {
     form[key] = useField(value)
   }
   
-  form.valid = computed(() => {
-    return Object.keys(form)
+  form.valid = computed(() =>  Object.keys(form)
       .filter(key => key !== 'valid')
       .every((key) =>  form[key].valid)
-  })
+  )
+
   return form
 }
 
